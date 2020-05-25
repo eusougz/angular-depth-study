@@ -1,0 +1,64 @@
+<style>
+    .body {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    .body div {
+        margin-right: 5%;
+    }
+    .body div:last-child {
+        margin-right: 0;
+    }
+    .cursos-todo {
+        display: flex;
+        flex-direction: column;
+    }
+    .cursos-done {
+        display: flex;
+        flex-direction: column;
+    }
+    .cursos-todo span::after, .cursos-done span::after {
+        content: '';
+        display: block;
+        margin-top: 2%;
+        max-width: 22rem;
+        height: 2.5px;
+        border-radius: 15px;
+        opacity: 0.6;
+    }
+    .cursos-todo span::after {
+        background-color: #007bff;
+    }
+    .cursos-done span::after {
+        background-color: #60d151;
+    }
+    .card {
+        margin-top: 5%;
+    }
+</style>
+
+
+<div class="body">
+    <div class="cursos-todo">
+        <span class="display-4">Em progesso</span>
+        <div class="card" style="width: 22rem;">
+            <div class="card-body">
+              <h5 class="card-title">Reactive Forms</h5>
+              <p class="card-text">Curso para melhor entedimento da magia reativa nos forms.</p>
+              <a href="#" class="btn btn-primary" routerLink="reactive-forms">Bora codar</a>
+            </div>
+          </div>
+    </div>
+    <div class="cursos-done">
+        <span class="display-4">Concluído</span>
+        <div class="card" style="width: 22rem;">
+            <div class="card-body">
+              <h5 class="card-title">Observables</h5>
+              <p class="card-text">Como funciona um Observable? Qual as diferenças entre Observable e Promisse?</p>
+              <a href="#" class="btn btn-success">Revisar</a>
+            </div>
+          </div>
+    </div>
+</div>
