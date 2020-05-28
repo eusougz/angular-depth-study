@@ -1,1 +1,40 @@
-<p>validation-advanced works!</p>
+<form (ngSubmit)="addUser()" [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="nameInput">Nome</label>
+    <input type="text" class="form-control" id="nameInput" placeholder="Seu nome completo" formControlName="name" [ngClass]="{'is-invalid': displayMessage.name}">
+    <span *ngIf="displayMessage.name" class="text-danger">
+      <p [innerHTML]="displayMessage.name"></p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="emailInput">Email</label>
+    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" formControlName="email" [ngClass]="{'is-invalid': displayMessage.email}">
+    <span *ngIf="displayMessage.email" class="text-danger">
+      <p [innerHTML]="displayMessage.email"></p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="cpfInput">CPF</label>
+    <input class="form-control" id="cpfInput" placeholder="Digite seu CPF" formControlName="cpf" [ngClass]="{'is-invalid': displayMessage.cpf}"
+      cpf [textMask]="{mask: MASK.cpf.textMask}">
+    <span *ngIf="displayMessage.cpf" class="text-danger">
+      <p [innerHTML]="displayMessage.cpf"></p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="passwordInput">Senha</label>
+    <input type="password" class="form-control" id="passwordInput" placeholder="Senha obrigatória" formControlName="password" [ngClass]="{'is-invalid': displayMessage.password}">
+    <span *ngIf="displayMessage.password" class="text-danger">
+      <p [innerHTML]="displayMessage.password"></p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="passwordInput">Confirmar senha</label>
+    <input type="password" class="form-control" id="passwordInput" placeholder="Confime a senha" formControlName="confirmedPassword" [ngClass]="{'is-invalid': displayMessage.confirmedPassword}">
+    <span *ngIf="displayMessage.confirmedPassword" class="text-danger">
+      <p [innerHTML]="displayMessage.confirmedPassword"></p>
+    </span>
+  </div>
+  <button type="submit" class="btn btn-success btn-lg" [disabled]="!registerForm.valid">Registrar</button>
+</form>
+
