@@ -5,6 +5,9 @@ import { NgBrazilValidators } from 'ng-brazil';
 import { utilsBr } from 'js-brasil';
 import { ValidationMessages, DisplayMessage, GenericValidator } from './generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
+import { VALIDATION_MESSAGES } from './models/validation-messages';
+import { User } from './models/user';
+
 
 @Component({
   selector: 'app-validation-advanced',
@@ -28,30 +31,7 @@ export class ValidationAdvancedComponent implements OnInit, AfterViewInit {
   displayMessage: DisplayMessage = {};
 
   constructor(private formBuilder: FormBuilder) {
-    this.validationMessages = {
-      name: {
-        required: 'O nome é obrigatório',
-        minLength: 'O nome precisa ter no mínimo 2 dígitos',
-        maxLength: 'O nome tem no máximo 120 dígitos.'
-      },
-      email: {
-        required: 'O email é obrigatório',
-        email: 'Email inválido'
-      },
-      cpf: {
-        required: 'O cpf é obrigatório',
-        cpf: 'CPF inválido'
-      },
-      password: {
-        required: 'A senha é obrigatória',
-        rangeLength: 'A senha deve conter entre 6 e 15 dígitos'
-      },
-      confirmedPassword: {
-        required: 'A senha é obrigatória',
-        rangeLength: 'A senha deve conter entre 6 e 15 dígitos',
-        equalTo: 'As senhas devem ser iguais'
-      }
-    };
+    this.validationMessages = VALIDATION_MESSAGES;
 
     this.genericValidator = new GenericValidator(this.validationMessages);
   }
@@ -95,12 +75,4 @@ export class ValidationAdvancedComponent implements OnInit, AfterViewInit {
     this.user = Object.assign({}, this.user, this.registerForm.value);
   }
 
-}
-
-export interface User {
-  name: string;
-  email: string;
-  cpf: string;
-  password: string;
-  confirmedPassword: string;
 }

@@ -7,22 +7,12 @@ import { ValidationAdvancedComponent } from './validation-advanced/validation-ad
 
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'form-validation',
-    component: FormValidationComponent
-  },
-  {
-    path: 'dinamic-form',
-    component: DinamicFormComponent
-  },
-  {
-    path: 'validation-advanced',
-    component: ValidationAdvancedComponent
-  }
+  { path: 'home', component: HomeComponent },
+  { path: 'form-validation', component: FormValidationComponent },
+  { path: 'dinamic-form', component: DinamicFormComponent },
+  { path: 'validation-advanced', component: ValidationAdvancedComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
