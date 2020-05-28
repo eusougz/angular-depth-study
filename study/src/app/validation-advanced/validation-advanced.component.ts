@@ -5,8 +5,8 @@ import { NgBrazilValidators } from 'ng-brazil';
 import { utilsBr } from 'js-brasil';
 import { ValidationMessages, DisplayMessage, GenericValidator } from './generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
-import { VALIDATION_MESSAGES } from './models/validation-messages';
 import { User } from './models/user';
+import { VALIDATION_MESSAGES } from './models/validation-messages';
 
 
 @Component({
