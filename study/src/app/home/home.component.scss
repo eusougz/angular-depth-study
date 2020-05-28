@@ -1,0 +1,38 @@
+.body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+.body div {
+  margin-right: 5%;
+}
+.body div:last-child {
+  margin-right: 0;
+}
+.cursos-todo {
+  display: flex;
+  flex-direction: column;
+}
+.cursos-done {
+  display: flex;
+  flex-direction: column;
+}
+.cursos-todo span::after, .cursos-done span::after {
+  content: '';
+  display: block;
+  margin-top: 2%;
+  max-width: 22rem;
+  height: 2.5px;
+  border-radius: 15px;
+  opacity: 0.6;
+}
+.cursos-todo span::after {
+  background-color: #007bff;
+}
+.cursos-done span::after {
+  background-color: #60d151;
+}
+.card {
+  margin-top: 5%;
+}

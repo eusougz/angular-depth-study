@@ -1,0 +1,44 @@
+<form (ngSubmit)="addUser()" [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="nameInput">Nome</label>
+    <input type="text" class="form-control" id="nameInput" placeholder="Seu nome completo" formControlName="name"
+      [ngClass]="{'is-invalid': registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)}">
+    <span *ngIf="registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)" class="text-danger">
+      Preencha o campo nome
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="emailInput">Email</label>
+    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" formControlName="email"
+      [ngClass]="{'is-invalid': registerForm.get('email').errors && (registerForm.get('email').dirty || registerForm.get('email').touched)}">
+    <span *ngIf="registerForm.get('email')?.errors?.required && (registerForm.get('email').dirty || registerForm.get('email').touched)" class="text-danger">
+      Preencha o campo email
+    </span>
+    <span *ngIf="registerForm.get('email')?.errors?.email && (registerForm.get('email').dirty || registerForm.get('email').touched)" class="text-danger">
+      Email em formato inválido
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="cpfInput">CPF</label>
+    <input class="form-control" id="cpfInput" placeholder="Digite seu CPF" formControlName="cpf" cpf [textMask]="{mask: MASK.cpf.textMask}">
+    <span *ngIf="registerForm.get('cpf')?.errors?.cpf && (registerForm.get('cpf').dirty || registerForm.get('cpf').touched)" class="text-danger">
+      CPF inválido
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="passwordInput">Senha</label>
+    <input type="password" class="form-control" id="passwordInput" placeholder="Senha obrigatória" formControlName="password">
+    <span *ngIf="registerForm.get('password')?.errors?.rangeLength && (registerForm.get('password').dirty || registerForm.get('password').touched)" class="text-danger">
+      Senha inválida
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="passwordInput">Confirmar senha</label>
+    <input type="password" class="form-control" id="passwordInput" placeholder="Senha obrigatória" formControlName="confirmedPassword">
+    <span *ngIf="registerForm.get('confirmedPassword')?.errors?.equalTo && (registerForm.get('confirmedPassword').dirty || registerForm.get('confirmedPassword').touched)" class="text-danger">
+      As senhas devem ser iguais
+    </span>
+  </div>
+  <button type="submit" class="btn btn-success btn-lg" [disabled]="!registerForm.valid">Registrar</button>
+</form>
+
