@@ -1,0 +1,74 @@
+<style>
+  .content-center {
+    margin: 3% auto;
+    max-width: 900px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+    .cards > div {
+      width: 45%;
+      padding: 3.5px;
+      background: linear-gradient(to bottom right, #d62078, #d620b4, #a220d6);
+    }
+    .cards > div:nth-child(odd) {
+      margin-right: 5%;
+    }
+
+  .card-content {
+    background-color: #f7f7f7;
+    padding: 15px;
+    height: 100%;
+    color: #3d3d3d;
+  }
+
+  .card-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .card-row .data-type {
+    width: 48%;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+  }
+  .card-row .data {
+    width: 48%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+</style>
+
+<div class="content-center">
+  <div class="cards">
+
+    <div *ngFor="let movie of movies" class="shadow-sm mb-5 rounded">
+      <div class="card-content">
+        <div class="card-row">
+          <span class="data-type">Nome</span>
+          <span class="data">{{ movie.name | titlecase }}</span>
+        </div>
+        <div class="card-row">
+          <span class="data-type">Data lançamento</span>
+          <span class="data">{{ movie.releaseDate | date: 'dd/MM/yyyy' }}</span>
+        </div>
+        <div class="card-row">
+          <span class="data-type">Valor</span>
+          <span class="data">{{ movie.value | currency: 'BRL':'symbol':'1.2-2':'pt' }}</span>
+        </div>
+        <div class="card-row">
+          <span class="data-type">Nos cinemas?</span>
+          <span class="data">{{ movie.inMovieTheater | yesorno }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

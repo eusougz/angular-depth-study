@@ -21,7 +21,7 @@
 .cursos-todo span::after, .cursos-done span::after {
   content: '';
   display: block;
-  margin-top: 2%;
+  margin-top: 5%;
   max-width: 22rem;
   height: 2.5px;
   border-radius: 15px;
@@ -35,4 +35,7 @@
 }
 .card {
   margin-top: 5%;
+}
+.card-body:hover {
+  background-color: whitesmoke;
 }
