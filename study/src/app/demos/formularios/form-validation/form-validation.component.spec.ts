@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormValidationComponent } from './form-validation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('FormValidationComponent', () => {
   let component: FormValidationComponent;
@@ -8,6 +9,10 @@ describe('FormValidationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
+      ],
       declarations: [ FormValidationComponent ]
     })
     .compileComponents();
