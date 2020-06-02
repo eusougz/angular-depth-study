@@ -20,7 +20,8 @@
   </div>
   <div class="form-group">
     <label for="cpfInput">CPF</label>
-    <input class="form-control" id="cpfInput" placeholder="Digite seu CPF" formControlName="cpf" cpf [textMask]="{mask: MASK.cpf.textMask}">
+    <input class="form-control" id="cpfInput" placeholder="Digite seu CPF" formControlName="cpf">
+     <!-- cpf [textMask]="{mask: MASK.cpf.textMask}"> -->
     <span *ngIf="registerForm.get('cpf')?.errors?.cpf && (registerForm.get('cpf').dirty || registerForm.get('cpf').touched)" class="text-danger">
       CPF inválido
     </span>

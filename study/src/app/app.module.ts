@@ -6,26 +6,17 @@ registerLocaleData(localePt);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgBrazil, TextMask } from 'ng-brazil';
-import { CustomFormsModule } from 'ng2-validation';
 import { HomeComponent } from './home/home.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormValidationComponent } from './form-validation/form-validation.component';
-import { DinamicFormComponent } from './dinamic-form/dinamic-form.component';
-import { ValidationAdvancedComponent } from './validation-advanced/validation-advanced.component';
 import { PipesTrainingComponent } from './pipes-training/pipes-training.component';
 import { AboutComponent } from './about/about.component';
 import { registerLocaleData } from '@angular/common';
 import { YesOrNoPipe } from './pipes/yes-or-no.pipe';
-
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FormValidationComponent,
-    DinamicFormComponent,
-    ValidationAdvancedComponent,
     PipesTrainingComponent,
     AboutComponent,
     YesOrNoPipe
@@ -33,11 +24,7 @@ import { YesOrNoPipe } from './pipes/yes-or-no.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgBrazil,
-    TextMask.TextMaskModule,
-    CustomFormsModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

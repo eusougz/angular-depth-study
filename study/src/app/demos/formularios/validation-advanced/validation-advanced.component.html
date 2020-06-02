@@ -15,8 +15,8 @@
   </div>
   <div class="form-group">
     <label for="cpfInput">CPF</label>
-    <input class="form-control" id="cpfInput" placeholder="Digite seu CPF" formControlName="cpf" [ngClass]="{'is-invalid': displayMessage.cpf}"
-      cpf [textMask]="{mask: MASK.cpf.textMask}">
+    <input class="form-control" id="cpfInput" placeholder="Digite seu CPF" formControlName="cpf" [ngClass]="{'is-invalid': displayMessage.cpf}">
+    <!-- cpf [textMask]="{mask: MASK.cpf.textMask}"> -->
     <span *ngIf="displayMessage.cpf" class="text-danger">
       <p [innerHTML]="displayMessage.cpf"></p>
     </span>
