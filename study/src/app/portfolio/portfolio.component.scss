@@ -1,0 +1,81 @@
+.page-content {
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #f7f7f7;
+  color: #303030;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: inherit;
+}
+  .menu-item {
+    width: 50px;
+    height: 50px;
+    margin: 1%;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px #d6d6d6;
+    border-radius: 22px;
+    border: 2px solid #fff;
+    transition: background 0.7s, border 0.7s, width 0.7s, border-radius 0.7s;
+    transition-timing-function: ease-in;
+  }
+  .menu-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+    .menu-item span {
+      width: 0%;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: width 0.7s ease-out;
+    }
+    .menu-item:hover {
+      background-color: #f2f2f2;
+      transition: background 0.4s, border 0.4s, border-radius 0.4s;
+      transition-timing-function: ease-out;
+      border: 2px solid #6ad3f4;
+      border-radius: 32px;
+    }
+    .menu-item:hover span {
+      width: 100%;
+      transition: width 0.7s ease-in;
+    }
+    .menu::after, .menu::before {
+      content: '';
+      display: block;
+      height: 100px;
+      width: 2px;
+      background-color: #6ad3f4;
+    }
+    .menu::after { background: linear-gradient(#6AD3F4, #F7F7F7)}
+    .menu::before { background: linear-gradient(#F7F7F7, #6AD3F4)}
+
+  .personal-projects-btn:hover {width: 174px}
+  .about-me-btn:hover {width: 118px}
+  .skills-btn:hover {width: 82px}
+
+  .personal-projects-btn:hover,
+  .about-me-btn:hover,
+  .skills-btn:hover  {
+    transition: width 0.4s ease-out;
+  }
+
+.infos {
+  height: fit-content;
+  align-self: center;
+  max-width: 70%;
+}
+  .infos > div {
+    width: 80%;
+  }
+

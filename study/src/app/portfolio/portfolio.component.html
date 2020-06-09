@@ -1,0 +1,57 @@
+<style>
+  i {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: 0.4s width ease-out;
+    color: #6ad3f4;
+  }
+    .menu-item:hover i {
+      width: 40px;
+      transition: 0.7s width ease-in-out;
+    }
+
+  h2 {
+    font-family: 'biorhymeregular', Arial, sans-serif;
+    color: #C8DF07;
+  }
+</style>
+
+<div class="page-content">
+
+  <div class="menu" [@menuOpenClose]="menu === 0 ? 'closed':'open'">
+    <div class="menu-item about-me-btn" (click)="aboutMe()">
+      <i class="fa fa-info" aria-hidden="true"></i>
+      <span>about me</span>
+    </div>
+    <div class="menu-item skills-btn" (click)="skills()">
+      <i class="fa fa-bolt" aria-hidden="true"></i>
+      <span>skills</span>
+    </div>
+    <div class="menu-item personal-projects-btn" (click)="personalProjects()">
+      <i class="fa fa-file" aria-hidden="true"></i>
+      <span>personal projects</span>
+    </div>
+  </div>
+
+  <div class="infos">
+    <div *ngIf="menu===1" @hideShow>
+      <h2>about me</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo fringilla libero nec ultrices. Aliquam commodo non lacus a tempus. Phasellus eu accumsan nulla. Morbi ipsum sem, ultricies eu pellentesque eu, laoreet vel lacus.</p>
+      <p>Praesent augue est, faucibus ac interdum vitae, varius cursus turpis. Pellentesque interdum hendrerit efficitur. Morbi fermentum vitae augue id consequat. Vestibulum ac lorem vitae leo congue lobortis. Vivamus et diam vitae erat fringilla accumsan non id felis.</p>
+    </div>
+
+    <div *ngIf="menu===2" @hideShow>
+      <h2>skills</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo fringilla libero nec ultrices. Aliquam commodo non lacus a tempus. Phasellus eu accumsan nulla. Morbi ipsum sem, ultricies eu pellentesque eu, laoreet vel lacus.</p>
+      <p>Praesent augue est, faucibus ac interdum vitae, varius cursus turpis. Pellentesque interdum hendrerit efficitur. Morbi fermentum vitae augue id consequat. Vestibulum ac lorem vitae leo congue lobortis. Vivamus et diam vitae erat fringilla accumsan non id felis.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo fringilla libero nec ultrices. Aliquam commodo non lacus a tempus. Phasellus eu accumsan nulla. Morbi ipsum sem, ultricies eu pellentesque eu, laoreet vel lacus.</p>
+    </div>
+
+    <div *ngIf="menu===3" @hideShow>
+      <h2>personal projects</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo fringilla libero nec ultrices. Aliquam commodo non lacus a tempus. Phasellus eu accumsan nulla. Morbi ipsum sem, ultricies eu pellentesque eu, laoreet vel lacus.</p>
+    </div>
+  </div>
+
+</div>

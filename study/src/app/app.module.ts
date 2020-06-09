@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { registerLocaleData } from '@angular/common';
 import { YesOrNoPipe } from './pipes/yes-or-no.pipe';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
   ],

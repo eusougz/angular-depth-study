@@ -1,7 +1,7 @@
 <style>
   .content-center {
     margin: 3% auto;
-    max-width: 900px;
+    max-width: 1100px;
   }
 
   .cards {
@@ -10,19 +10,21 @@
     flex-wrap: wrap;
   }
     .cards > div {
-      width: 45%;
+      min-width: 300px;
+      width: 300px;
+      max-width: 100%;
+      flex-grow: 1;
       padding: 3.5px;
-      background: linear-gradient(to bottom right, #d62078, #d620b4, #a220d6);
-    }
-    .cards > div:nth-child(odd) {
-      margin-right: 5%;
+      margin: 2%;
+      border-radius: 5px 5px 40px 5px;
+      background: linear-gradient(to bottom right, #8c8c8c, #6d6d6d, #4c4c4c);
     }
 
   .card-content {
-    background-color: #f7f7f7;
     padding: 15px;
     height: 100%;
-    color: #3d3d3d;
+    color: #fff;
+    border-radius: 5px 5px 40px 5px;
   }
 
   .card-row {
@@ -34,37 +36,48 @@
   .card-row .data-type {
     width: 48%;
     display: flex;
-    justify-content: flex-end;
-    font-weight: bold;
+    justify-content: flex-start;
   }
   .card-row .data {
     width: 48%;
     display: flex;
     justify-content: flex-start;
+    font-weight: 500;
   }
+  .movie-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+  }
+    .movie-name::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 3% auto;
+      opacity: 0.3;
+      background-color: white;
+    }
+
+  .yes {color: #69f95e}.no {color: #f9855e}
 
 </style>
 
 <div class="content-center">
   <div class="cards">
 
-    <div *ngFor="let movie of movies" class="shadow-sm mb-5 rounded">
+    <div *ngFor="let movie of movies" class="shadow-sm mb-5">
       <div class="card-content">
-        <div class="card-row">
-          <span class="data-type">Nome</span>
-          <span class="data">{{ movie.name | titlecase }}</span>
-        </div>
-        <div class="card-row">
-          <span class="data-type">Data lançamento</span>
-          <span class="data">{{ movie.releaseDate | date: 'dd/MM/yyyy' }}</span>
-        </div>
-        <div class="card-row">
-          <span class="data-type">Valor</span>
-          <span class="data">{{ movie.value | currency: 'BRL':'symbol':'1.2-2':'pt' }}</span>
-        </div>
+        <span class="movie-name">{{ movie.name | titlecase }}</span>
         <div class="card-row">
           <span class="data-type">Nos cinemas?</span>
-          <span class="data">{{ movie.inMovieTheater | yesorno }}</span>
+          <span class="data" [ngClass]="{'yes': movie.inMovieTheater, 'no': !movie.inMovieTheater}">
+            {{ movie.inMovieTheater | yesorno }}
+          </span>
+        </div>
+        <div class="card-row">
+          <span class="data-type">Lançamento</span>
+          <span class="data">{{ movie.releaseDate | date: 'dd/MM/yyyy' }}</span>
         </div>
       </div>
     </div>
